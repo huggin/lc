@@ -1,3 +1,4 @@
+
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
-        return max(max(accumulate(gain)), 0)
+        return max(accumulate(gain, initial=0))
