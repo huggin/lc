@@ -1,3 +1,6 @@
+from functools import cache
+
+
 class Solution:
     def strangePrinter(self, s: str) -> int:
         a = []
@@ -7,7 +10,7 @@ class Solution:
         n = len(a)
 
         @cache
-        def f(i, j, curr="$"):
+        def f(i, j, curr="$") -> int:
             if i > j:
                 return 0
             if a[i] == curr:
