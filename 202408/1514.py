@@ -4,30 +4,25 @@ class Solution:
         n: int,
         edges: List[List[int]],
         succProb: List[float],
-        start: int,
-        end: int,
+        start_node: int,
+        end_node: int,
     ) -> float:
-        adj = [[] for _ in range(n)]
-        m = len(edges)
-        for i in range(m):
-            v, w = edges[i][0], edges[i][1]
-            r = succProb[i]
-            adj[v].append((w, r))
-            adj[w].append((v, r))
+        g = [[] for _ in range(n)]
+        for i, e in enumerate(edges):
+            g[e[0]].append((e[1], i))
+            g[e[1]].append((e[0], i))
 
-        dist = [0] * n
-        dist[start] = 1
-        marked = [0] * n
-        pq = []
-        heapq.heappush(pq, (-1, start))
+        pq = [(-1, start_node)]
+        dest = [0] * n
+        dest[start_node] = 1
         while pq:
-            curr, v = heapq.heappop(pq)
-            if marked[v] == 1:
+            w, u = heapq.heappop(pq)
+            w = -w
+            if dest[u] > w:
                 continue
-            dist[v] = max(-curr, dist[v])
-            marked[v] = 1
-            for w, r in adj[v]:
-                if marked[w] == 0:
-                    heapq.heappush(pq, (curr * r, w))
+            for v, i in g[u]:
+                if dest[v] < w * succProb[i]:
+                    dest[v] = w * succProb[i]
+                    heapq.heappush(pq, (-dest[v], v))
 
-        return dist[end]
+        return dest[end_node]
