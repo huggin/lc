@@ -11,16 +11,15 @@ class Solution:
         if n < m:
             w1, w2 = w2, w1
             n, m = m, n
-        
+
         i, j = 0, 0
-        flag = False
         while i < n and j < m:
             if w1[i] == w2[j]:
                 i += 1
                 j += 1
             else:
                 break
-        
+
         i2 = n - 1
         j2 = m - 1
         while j2 >= j:
@@ -29,7 +28,5 @@ class Solution:
                 j2 -= 1
             else:
                 break
-        
-        return j2 < j
-        
 
+        return j2 < j
