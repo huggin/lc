@@ -4,7 +4,7 @@ class Solution:
         cnt = 0
         ans = 0
         for c in s:
-            if c == '0':
+            if c == "0":
                 ans += cnt
             else:
                 cnt += 1

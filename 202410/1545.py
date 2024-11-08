@@ -1,7 +1,7 @@
 class Solution:
     def findKthBit(self, n: int, k: int) -> str:
         k -= 1
-        sl = [2 ** i - 1 for i in range(1, n+1)]
+        sl = [2**i - 1 for i in range(1, n + 1)]
         inv = 0
         for l in reversed(sl):
             if l == 1:
@@ -12,4 +12,3 @@ class Solution:
                 k = l - 1 - k
                 inv = 1 - inv
         return -1
-

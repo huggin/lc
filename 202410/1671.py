@@ -1,4 +1,3 @@
-class Solution:
     def minimumMountainRemovals(self, nums: List[int]) -> int:
         n = len(nums)
         left = [1] * n

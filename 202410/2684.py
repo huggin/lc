@@ -9,14 +9,21 @@ class Solution:
         ans = 0
         for i in range(1, n):
             for j in range(m):
-                if j - 1 >= 0 and dp[j-1][i-1] >= 0 and grid[j-1][i-1] < grid[j][i]:
+                if (
+                    j - 1 >= 0
+                    and dp[j - 1][i - 1] >= 0
+                    and grid[j - 1][i - 1] < grid[j][i]
+                ):
                     dp[j][i] = i
-                elif j + 1 < m and dp[j+1][i-1] >= 0 and grid[j+1][i-1] < grid[j][i]:
+                elif (
+                    j + 1 < m
+                    and dp[j + 1][i - 1] >= 0
+                    and grid[j + 1][i - 1] < grid[j][i]
+                ):
                     dp[j][i] = i
-                elif dp[j][i-1] >= 0 and grid[j][i-1] < grid[j][i]:
+                elif dp[j][i - 1] >= 0 and grid[j][i - 1] < grid[j][i]:
                     dp[j][i] = i
-        
-                ans = max(ans, dp[j][i])
-        
-        return ans
 
+                ans = max(ans, dp[j][i])
+
+        return ans
