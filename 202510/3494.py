@@ -7,9 +7,8 @@ class Solution:
             curr = 0
             for j in range(n):
                 curr = max(curr, ans[j]) + skill[j] * mana[i]
-            ans[n-1] = curr
-            for j in range(n-2, -1, -1):
-                ans[j] = ans[j+1] - skill[j+1] * mana[i]
-        
-        return ans[n-1]
+            ans[n - 1] = curr
+            for j in range(n - 2, -1, -1):
+                ans[j] = ans[j + 1] - skill[j + 1] * mana[i]
 
+        return ans[n - 1]

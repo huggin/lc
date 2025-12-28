@@ -5,7 +5,7 @@ class Solution:
         for w in words:
             curr = [0] * 26
             for c in w:
-                curr[ord(c) - ord('a')] += 1
+                curr[ord(c) - ord("a")] += 1
             if prev != curr:
                 ans.append(w)
                 prev = curr
