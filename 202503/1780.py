@@ -5,4 +5,4 @@ class Solution:
             a.append(n % 3)
             n //= 3
 
-        return not 2 in a
+        return 2 not in a

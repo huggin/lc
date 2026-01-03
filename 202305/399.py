@@ -12,7 +12,7 @@ class Solution:
 
         for i in range(n):
             idx1 = -1
-            if not equations[i][0] in v2i:
+            if equations[i][0] not in v2i:
                 vertex.append(equations[i][0])
                 adj.append([])
                 idx1 = len(vertex) - 1
@@ -21,7 +21,7 @@ class Solution:
                 idx1 = v2i[equations[i][0]]
 
             idx2 = -1
-            if not equations[i][1] in v2i:
+            if equations[i][1] not in v2i:
                 vertex.append(equations[i][1])
                 adj.append([])
                 idx2 = len(vertex) - 1

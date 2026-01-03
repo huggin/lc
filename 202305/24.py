@@ -8,7 +8,7 @@ class Solution:
         p = head
         while p:
             q = p.next
-            if not q is None:
+            if q is not None:
                 p.val, q.val = q.val, p.val
             if q:
                 p = q.next
